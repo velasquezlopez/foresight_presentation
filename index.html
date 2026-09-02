@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anlly Upegui | Strategic Foresight Bancolombia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a0c;
+            --bg-card: #15151a;
+            --text-main: #e0e0e0;
+            --text-muted: #888893;
+            --neon-yellow: #fdd835;
+            --neon-blue: #00e5ff;
+            --accent: #2962ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .futuristic-text {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Utils */
+        .highlight-yellow { color: var(--neon-yellow); text-shadow: 0 0 10px rgba(253, 216, 53, 0.4); }
+        .highlight-blue { color: var(--neon-blue); text-shadow: 0 0 10px rgba(0, 229, 255, 0.4); }
+        .section-padding { padding: 100px 5%; }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: radial-gradient(circle at 50% 50%, rgba(41, 98, 255, 0.1) 0%, transparent 60%);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            z-index: 2;
+        }
+
+        .greeting {
+            font-size: 1.2rem;
+            color: var(--neon-blue);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 30px;
+            font-weight: 800;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* Cards */
+        .glass-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 16px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 3px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-yellow));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .glass-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 5px 12px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin: 5px 5px 15px 0;
+            color: var(--neon-blue);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: transparent;
+            color: var(--neon-yellow);
+            border: 2px solid var(--neon-yellow);
+            box-shadow: 0 0 15px rgba(253, 216, 53, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: var(--neon-yellow);
+            color: var(--bg-dark);
+            box-shadow: 0 0 25px rgba(253, 216, 53, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--neon-blue);
+            border: 2px solid var(--neon-blue);
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: var(--neon-blue);
+            color: var(--bg-dark);
+            box-shadow: 0 0 25px rgba(0, 229, 255, 0.6);
+        }
+
+        /* Sections specific */
+        .section-header {
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .tech-vocab {
+            color: var(--text-main);
+            font-style: italic;
+            border-bottom: 1px dashed var(--neon-blue);
+        }
+
+        /* Footer / CTA */
+        #cta {
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #050508 100%);
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .section-padding { padding: 60px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="section-padding container">
+        <div class="hero-content">
+            <span class="greeting">Hola, Jacky Arango</span>
+            <h1 class="hero-title">Entre todos los escenarios plausibles para el sector financiero,<br> <span class="highlight-yellow">el más preferible</span> es aquel donde me sumo a tu equipo para hacer cosas increíbles.</h1>
+            <p class="hero-subtitle">Soy <strong>Anlly Upegui Valencia</strong>, Arquitecta de Estrategia, Innovación y Futuros. No diseño PDFs decorativos; articulo <span class="tech-vocab">Horizon Scanning</span> y estrategia emergente para movilizar decisiones en el presente.</p>
+            <a href="#cta" class="btn btn-primary">Iniciar Conexión</a>
+        </div>
+    </section>
+
+    <!-- PERFIL Y HABILIDADES -->
+    <section id="profile" class="section-padding container">
+        <div class="section-header">
+            <h2>Decodificando la <span class="highlight-blue">Incertidumbre</span></h2>
+            <p style="max-width: 600px; color: var(--text-muted);">Transformo señales débiles en portafolios accionables. Mi maestría en Diseño de Futuros (Colegiatura) y mi experiencia liderando portafolios B2B y estrategias organizacionales me permiten conectar la visión con la ejecución ágil.</p>
+        </div>
+        
+        <div class="grid-2">
+            <div class="glass-card">
+                <h3 class="card-title">Futures Literacy & Foresight</h3>
+                <span class="tag">Causal Layered Analysis</span>
+                <span class="tag">Horizon Scanning</span>
+                <span class="tag">Backcasting</span>
+                <span class="tag">Mapeo de Actores</span>
+                <p>Capacidad probada para anticipar escenarios regulatorios y de mercado. Paso de la especulación a la acción estructurando <span class="tech-vocab">Artefactos del Futuro</span> que provocan conversaciones movilizadoras en la alta dirección.</p>
+            </div>
+            <div class="glass-card">
+                <h3 class="card-title">Estrategia & Agilidad</h3>
+                <span class="tag">Scrum Master & SPOC</span>
+                <span class="tag">Design Thinking</span>
+                <span class="tag">Portafolio Ágil</span>
+                <span class="tag">OKR</span>
+                <p>En Los Olivos y Wise 4D, lideré la transición hacia modelos de portafolio digital y ecosistemas integrales. Traduzco la prospectiva en backlogs estructurados, elevando el cumplimiento estratégico del 20% al 90%.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- OPORTUNIDADES BANCOLOMBIA -->
+    <section id="opportunities" class="section-padding container">
+        <div class="section-header">
+            <h2>3 Señales Débiles, <span class="highlight-yellow">3 Oportunidades para Bancolombia</span></h2>
+            <p style="max-width: 600px; color: var(--text-muted);">Aplicando <em>Horizon Scanning</em> sobre las dinámicas emergentes del ecosistema financiero regional.</p>
+        </div>
+
+        <div class="grid-3">
+            <div class="glass-card">
+                <h3 class="card-title">1. Finanzas Regenerativas & Transición</h3>
+                <p>Más allá del 'Net Zero' y ESG tradicional. Bancolombia puede liderar el diseño de productos financieros vinculados a créditos de biodiversidad y economía regenerativa local. Aplicando <span class="tech-vocab">Causal Layered Analysis</span>, podemos deconstruir la percepción del riesgo climático y transformarla en una ventaja competitiva de regeneración de ecosistemas.</p>
+            </div>
+            
+            <div class="glass-card">
+                <h3 class="card-title">2. 'Principalidad' Cognitiva y Ética IA</h3>
+                <p>La IA en banca debe superar la automatización transaccional. La oportunidad radica en diseñar interacciones (Superapps) que generen alfabetización y bienestar financiero autónomo. Evitando sesgos algorítmicos, el banco se posiciona no solo como custodio de dinero, sino como el principal orquestador del comportamiento financiero saludable del usuario.</p>
+            </div>
+
+            <div class="glass-card">
+                <h3 class="card-title">3. Identidad Financiera Descentralizada</h3>
+                <p>Ante la proliferación de protocolos descentralizados, el rol de la banca muta. Explorando escenarios a través de <span class="tech-vocab">Backcasting</span>, Bancolombia puede anticiparse actuando como puente de confianza y validación de identidad (KYC universal) entre los mundos Web2 y Web3, facilitando finanzas embebidas en comunidades regionales.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="cta" class="section-padding container">
+        <h2 style="font-size: 3rem; margin-bottom: 20px;">Diseñemos el próximo <span class="highlight-blue">horizonte</span></h2>
+        <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto;">Me encantaría profundizar en cómo podemos materializar estas visiones en el equipo de Inteligencia Estratégica.</p>
+        
+        <div class="contact-links">
+            <a href="https://wa.me/573054314088" target="_blank" class="btn btn-primary">Conectar por WhatsApp</a>
+            <a href="https://linkedin.com/in/anllyupegui" target="_blank" class="btn btn-secondary">Ver LinkedIn</a>
+            <a href="HV_AnllyM_UpeguiV.pdf" download class="btn btn-secondary">Descargar HV (PDF)</a>
+        </div>
+        <p style="margin-top: 40px; font-size: 0.9rem; color: #555;">anllyupeguiv@gmail.com | 305-431-4088</p>
+    </section>
+
+    <script>
+        // Animaciones simples de aparición
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.glass-card');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
