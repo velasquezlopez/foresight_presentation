@@ -4,6 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Anlly Upegui Valencia · Hola, Jacky</title>
+
+<!-- METADATOS DE PREVISUALIZACIÓN (OPEN GRAPH PARA LINKEDIN / WHATSAPP) -->
+<meta property="og:title" content="Soy Anlly: Diseño futuros que se puedan habitar, no solo imaginar.">
+<meta property="og:description" content="¿Podemos hablar?">
+<meta property="og:url" content="https://anlly-upegui-presentacion.vercel.app/">
+<meta property="og:type" content="website">
+
+<!-- TWITTER CARDS -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Soy Anlly: Diseño futuros que se puedan habitar, no solo imaginar.">
+<meta name="twitter:description" content="¿Podemos hablar?">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -32,7 +44,6 @@
     font-family: 'Epilogue', sans-serif; line-height: 1.65;
     -webkit-font-smoothing: antialiased; overflow-x: hidden;
   }
-  /* Cambio de fuente a Space Grotesk para optimizar espacio en headers */
   h1, h2, h3, .display{font-family:'Space Grotesk', sans-serif; font-weight:700; letter-spacing:-0.03em; color:var(--primary);}
   a{color:inherit;}
   ::selection{background: var(--accent-orange); color: #fff;}
@@ -226,13 +237,19 @@
   .signals-intro strong{color:var(--primary);}
 
   .cone-wrap{display:flex; align-items:center; gap:36px; margin-bottom:48px; flex-wrap:wrap; background:var(--bg-elevated); padding:32px; border:1px solid var(--line); border-left:4px solid var(--accent-teal);}
-  .cone-box{position:relative; width:240px; height:140px; flex:none;}
+  
+  /* Ajuste para contener el label de "Presente" de manera limpia y verticalmente centrada */
+  .cone-box{position:relative; width:260px; height:140px; flex:none; margin-left:8px;}
   .cone-shape{
-    position:absolute; left:0; top:50%; width:220px; height:0; transform:translateY(-50%);
-    border-top:70px solid transparent; border-bottom:70px solid transparent; border-left:220px solid var(--line-strong);
+    position:absolute; left:45px; top:50%; width:200px; height:0; transform:translateY(-50%);
+    border-top:70px solid transparent; border-bottom:70px solid transparent; border-left:200px solid var(--line-strong);
     opacity:0.4;
   }
-  .cone-label.present{position:absolute; left:-8px; top:50%; transform:translate(-100%,-50%); font-size:0.8rem; color:var(--primary); font-weight:700; white-space:nowrap;}
+  .cone-label.present{
+    position:absolute; left:0; top:50%; transform:translateY(-50%);
+    font-size:0.75rem; color:var(--primary); font-weight:700; white-space:nowrap;
+  }
+
   .cone-tag{position:absolute; right:-6px; font-size:0.72rem; font-weight:700; color:#fff; background:var(--primary); padding:4px 10px; border-radius:0px; white-space:nowrap;}
   .cone-tag.probables{top:50%; transform:translateY(-50%); background:var(--accent-teal);}
   .cone-tag.posibles{top:14%; background:var(--accent-pink);}
@@ -252,12 +269,14 @@
   .matrix-box::before,.matrix-box::after{content:''; position:absolute; background:var(--line);}
   .matrix-box::before{left:50%; top:0; bottom:0; width:1px;}
   .matrix-box::after{top:50%; left:0; right:0; height:1px;}
-  .axis-label{position:absolute; font-size:0.75rem; color:var(--ink-faint); font-weight:700; text-transform:uppercase; letter-spacing:0.05em;}
-  .axis-label.top{top:14px; left:16px;}
-  .axis-label.bottom{bottom:14px; left:16px;}
-  .axis-label.right-top{top:14px; right:16px; text-align:right;}
-  .axis-y{position:absolute; top:14px; left:16px; font-size:0.75rem; color:var(--accent-orange); font-weight:700;}
-  .axis-x{position:absolute; bottom:14px; right:16px; font-size:0.75rem; color:var(--accent-orange); font-weight:700;}
+
+  /* Ajuste de etiquetas de ejes para evitar solapamientos (overlap) */
+  .axis-label{position:absolute; font-size:0.72rem; color:var(--ink-faint); font-weight:700; text-transform:uppercase; letter-spacing:0.05em;}
+  .axis-label.top{top:12px; left:14px;}
+  .axis-label.bottom{bottom:12px; left:14px;}
+  .axis-y{position:absolute; top:32px; left:14px; font-size:0.7rem; color:var(--accent-orange); font-weight:700;}
+  .axis-x{position:absolute; bottom:12px; right:14px; font-size:0.7rem; color:var(--accent-orange); font-weight:700;}
+
   .pin{
     position:absolute; width:18px; height:18px; border-radius:50%;
     transform:translate(-50%,-50%); cursor:pointer; border:2px solid var(--bg-elevated);
@@ -443,7 +462,7 @@
 
     <p>Diseño estrategias que permiten a las organizaciones anticipar el futuro y evolucionar con él. Administradora de Empresas, Magíster en Educación y Derechos Humanos, y actualmente en la <strong>Maestría en Diseño de Futuros</strong>. Mi práctica conecta direccionamiento estratégico, foresight aplicado y evolución de negocio en sectores como salud, tecnología, educación y economía solidaria.</p>
 
-    <p>He liderado portafolios de innovación bajo pensamiento sistémico y estrategia emergente, traduciendo señales del entorno en decisiones de alto impacto. Retroprospectiva, exploración de horizontes, análisis causal en capas y mapeo de actores no son solo herramientas de una maestría: son cómo ya tomo decisiones todos los días.</p>
+    <p>He liderado portafolios de innovación bajo pensamiento sistémico y estrategia emergente, traduciendo señales del entorno en decisiones de alto impacto. Retroprospectiva, exploración de horizontes, análisis causal en capas y mapeo de actores no son solo herramientas: son cómo ya tomo decisiones todos los días.</p>
 
     <div class="skills-grid" id="skillsGrid"></div>
 
@@ -569,7 +588,7 @@
 </main>
 
 <footer>
-  <div class="wrap"><p>Anlly Upegui Valencia, Arquitecta de Estrategia, Innovación y Futuros</p></div>
+  <div class="wrap"><p>Anlly Upegui Valencia, Arquitecta de Estrategia, Innovación y Futuro.</p></div>
 </footer>
 
 <script>
