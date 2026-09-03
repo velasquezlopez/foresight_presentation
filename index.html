@@ -1,317 +1,763 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anlly Upegui | Strategic Foresight Bancolombia</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-dark: #0a0a0c;
-            --bg-card: #15151a;
-            --text-main: #e0e0e0;
-            --text-muted: #888893;
-            --neon-yellow: #fdd835;
-            --neon-blue: #00e5ff;
-            --accent: #2962ff;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anlly Upegui Valencia · Hola, Jacky</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: light;
+    --bg: #fdfbf7;
+    --bg-soft: #f4eee1;
+    --bg-elevated: #ffffff;
+    --primary: #122238;
+    --accent-orange: #e05638;
+    --accent-teal: #008080;
+    --accent-purple: #6b46c1;
+    --accent-pink: #d53f8c;
+    --accent-yellow: #d69e2e;
+    --ink: #1a202c;
+    --ink-dim: #4a5568;
+    --ink-faint: #718096;
+    --line: #e2e8f0;
+    --line-strong: #cbd5e1;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background: var(--bg); color: var(--ink);
+    font-family: 'Epilogue', sans-serif; line-height: 1.65;
+    -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+  h1, h2, h3, .display{font-family:'Syne', sans-serif; font-weight:800; letter-spacing:-0.02em; color:var(--primary);}
+  a{color:inherit;}
+  ::selection{background: var(--accent-orange); color: #fff;}
+  :focus-visible{outline: 2px solid var(--accent-orange); outline-offset: 3px;}
+  .sr-only{
+    position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+    overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+  }
+  .skip-link{
+    position:absolute; top:-120px; left:20px; z-index:9999;
+    background: var(--accent-orange); color: #fff; padding: 12px 18px;
+    font-family:'Epilogue', sans-serif; font-weight:700; font-size:0.92rem;
+    text-decoration:none; border-radius:0px; box-shadow:0 8px 24px rgba(0,0,0,0.15);
+    transition: top 0.2s ease;
+  }
+  .skip-link:focus-visible{top:16px;}
+  .section-lede, .about p, .capacity p, .capacity h3,
+  .tl-item h3, .tl-item p, .tl-compact h4, .signals-intro,
+  .signal-card, .detail-panel, .contact-item{
+    overflow-wrap:break-word; word-break:break-word;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto !important;}
+    .blob, .burst, .wave, .hero p.intro, .hero h1, .hero-sub, .hero-name{
+      animation:none !important;
+      transform:none !important;
+      opacity:1 !important;
+    }
+    *, *::before, *::after{
+      transition-duration:0.04s !important;
+      animation-duration:0.04s !important;
+    }
+  }
+  .wrap{max-width:1200px; margin:0 auto; padding:0 5vw;}
+  section{position:relative; padding:110px 0;}
+  section + section{border-top:1px solid var(--line);}
+  .kicker{font-size:0.8rem; color:var(--accent-orange); font-weight:700; margin-bottom:14px; letter-spacing:0.12em; text-transform:uppercase;}
+  .section-title{font-size:clamp(1.8rem, 3.5vw, 2.8rem); margin-bottom:16px; line-height:1.15;}
+  .section-lede{color:var(--ink-dim); max-width:700px; font-size:1.1rem; margin-bottom:56px;}
+  .gradient-text{
+    background: linear-gradient(135deg, var(--accent-orange), var(--accent-pink), var(--accent-purple));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  /* ---------- HERO CON FONDO COLORIDO DE MAYOR FUERZA ---------- */
+  .hero{
+    min-height:92vh; display:flex; flex-direction:column; justify-content:center;
+    padding:140px 0 100px; border-top:none; overflow:hidden;
+    background: 
+      radial-gradient(circle at 90% 10%, rgba(213, 63, 140, 0.12) 0%, transparent 50%),
+      radial-gradient(circle at 10% 90%, rgba(0, 128, 128, 0.1) 0%, transparent 50%),
+      linear-gradient(135deg, #f7f1e5 0%, #ede3d2 100%);
+    border-bottom: 2px solid var(--line-strong);
+    position: relative;
+  }
+  .hero::after{
+    content:''; position:absolute; inset:0; pointer-events:none;
+    background-image: radial-gradient(rgba(18, 34, 56, 0.04) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  .blob{position:absolute; border-radius:50%; filter:blur(60px); opacity:0.4; pointer-events:none;}
+  .blob1{width:420px; height:420px; background:linear-gradient(135deg, var(--accent-orange), var(--accent-pink)); top:-100px; right:-80px;}
+  .blob2{width:360px; height:360px; background:var(--accent-teal); bottom:-80px; left:-60px;}
 
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+  .hero-inner{position:relative; z-index:2; max-width:1050px;}
+  .wave{font-size:clamp(1.4rem, 2.2vw, 1.8rem); color:var(--accent-orange); font-weight:800; margin-bottom:20px; font-family:'Syne',sans-serif;
+    opacity:0; transform:translateY(10px); animation:rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.1s;}
+  .hero p.intro{max-width:780px; color:var(--primary); font-size:clamp(1.15rem, 1.8vw, 1.4rem); line-height:1.6; margin-bottom:36px; font-weight:600;
+    opacity:0; transform:translateY(10px); animation:rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.28s;}
+  
+  .hero h1{
+    font-size:clamp(2.3rem, 5vw, 4.2rem); line-height:1.1; max-width:980px;
+    opacity:0; transform:translateY(14px); animation:rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.46s;
+    letter-spacing: -0.025em;
+  }
+  
+  .hero-sub{margin-top:24px; max-width:580px; color:var(--ink-dim); font-size:1.02rem;
+    opacity:0; transform:translateY(14px); animation:rise 0.9s ease forwards 0.68s;}
+  @keyframes rise{ to{opacity:1; transform:translateY(0);} }
+  .hero-name{
+    margin-top:64px; padding-top:28px; border-top:2px solid var(--primary);
+    display:flex; flex-wrap:wrap; gap:8px 24px; align-items:baseline;
+    opacity:0; animation:rise 0.9s ease forwards 0.9s;
+  }
+  .hero-name .name{font-family:'Syne', sans-serif; font-size:1.25rem; font-weight:800; color:var(--primary);}
+  .hero-name .role{color:var(--ink-dim); font-size:0.98rem; font-weight:600;}
 
-        h1, h2, h3, h4, .futuristic-text {
-            font-family: 'Space Grotesk', sans-serif;
-        }
+  /* ---------- PERFIL (about) ---------- */
+  .about p{color:var(--ink-dim); font-size:1.1rem; margin-bottom:22px; max-width:800px; line-height:1.7;}
+  .about strong{color:var(--primary); font-weight:700;}
 
-        /* Utils */
-        .highlight-yellow { color: var(--neon-yellow); text-shadow: 0 0 10px rgba(253, 216, 53, 0.4); }
-        .highlight-blue { color: var(--neon-blue); text-shadow: 0 0 10px rgba(0, 229, 255, 0.4); }
-        .section-padding { padding: 100px 5%; }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+  .skills-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:48px; perspective:1000px;}
+  .skill-card{
+    height:130px; cursor:pointer; background:none; border:none; padding:0;
+    font-family:inherit; text-align:inherit; display:block; width:100%;
+    color:inherit; border-radius:0px;
+  }
+  .skill-card:focus-visible{outline:2px solid var(--accent-orange); outline-offset:3px;}
+  .skill-inner{position:relative; width:100%; height:100%; transition:transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); transform-style:preserve-3d;}
+  .skill-card.flipped .skill-inner{transform:rotateY(180deg);}
+  .skill-face{
+    position:absolute; inset:0; backface-visibility:hidden; border-radius:0px;
+    display:flex; align-items:center; justify-content:center; text-align:center; padding:16px;
+    border:1px solid var(--line-strong); background:var(--bg-elevated);
+  }
+  .skill-front{font-size:0.9rem; font-weight:700; color:var(--primary); font-family:'Syne', sans-serif;}
+  .skill-flip-icon{position:absolute; bottom:8px; right:10px; font-size:0.75rem; color:var(--accent-orange);}
+  .skill-back{background:var(--primary); transform:rotateY(180deg); font-size:0.82rem; color:#fff; line-height:1.45; font-weight:500;}
+  .skill-card:hover .skill-face{border-color:var(--accent-orange);}
+  @media (max-width:900px){ .skills-grid{grid-template-columns:repeat(2,1fr);} }
 
-        /* Hero Section */
-        #hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            background: radial-gradient(circle at 50% 50%, rgba(41, 98, 255, 0.1) 0%, transparent 60%);
-        }
+  .cone-layout{display:grid; grid-template-columns:380px 1fr; gap:48px; align-items:center; margin-top:32px;}
+  .big-cone{position:relative; max-width:380px;}
+  .big-cone svg{display:block; width:100%; height:auto;}
+  .cone-side{display:flex; flex-direction:column; gap:24px;}
+  .cone-labels{display:flex; flex-wrap:wrap; gap:12px;}
+  .cone-lbl{
+    display:flex; align-items:center; gap:10px; font-size:0.9rem; color:var(--ink-dim); font-weight:600;
+    background:var(--bg-elevated); border:1px solid var(--line); padding:12px 18px; border-radius:0px;
+    cursor:pointer; font-family:'Epilogue',sans-serif; transition:all 0.2s ease;
+  }
+  .cone-lbl:hover, .cone-lbl.active{border-color:var(--primary); color:var(--primary); background:var(--bg-soft);}
+  .cone-lbl .dot{width:9px; height:9px; border-radius:50%; display:inline-block; flex:none;}
+  .cone-detail{min-height:100px; display:flex; align-items:center;}
+  @media (max-width:900px){
+    .cone-layout{grid-template-columns:1fr;}
+    .big-cone{max-width:300px; margin:0 auto;}
+  }
 
-        .hero-content {
-            max-width: 900px;
-            z-index: 2;
-        }
+  .capacity-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:64px;}
+  .capacity{
+    padding:36px; background:var(--bg-elevated);
+    border:1px solid var(--line); border-radius:0px;
+    transition:all 0.2s ease;
+  }
+  .capacity:hover{border-color:var(--primary); transform:translateY(-2px); box-shadow:0 10px 30px rgba(0,0,0,0.05);}
+  .capacity h3{font-size:1.25rem; margin-bottom:14px; line-height:1.3; font-weight:700; color:var(--primary);}
+  .capacity p{color:var(--ink-dim); font-size:0.98rem; line-height:1.65;}
+  
+  /* Bloques con colores vivos para "quién soy" */
+  .capacity:nth-child(1){border-top:4px solid var(--accent-orange); background: linear-gradient(to bottom, rgba(224,86,56,0.03), #fff);}
+  .capacity:nth-child(2){border-top:4px solid var(--accent-teal); background: linear-gradient(to bottom, rgba(0,128,128,0.03), #fff);}
+  .capacity:nth-child(3){border-top:4px solid var(--accent-purple); background: linear-gradient(to bottom, rgba(107,70,193,0.03), #fff);}
+  .capacity:nth-child(4){border-top:4px solid var(--accent-yellow); background: linear-gradient(to bottom, rgba(214,158,46,0.03), #fff);}
 
-        .greeting {
-            font-size: 1.2rem;
-            color: var(--neon-blue);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            display: block;
-        }
+  @media(max-width:760px){.capacity-grid{grid-template-columns:1fr;}}
 
-        .hero-title {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            line-height: 1.1;
-            margin-bottom: 30px;
-            font-weight: 800;
-        }
+  /* ---------- TRAYECTORIA (Títulos corregidos, no "achatados") ---------- */
+  .timeline{border-left:3px solid var(--accent-orange); margin-left:8px; padding-left:32px;}
+  .tl-item{position:relative; padding:0 0 48px 0;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{content:''; position:absolute; left:-42px; top:6px; width:14px; height:14px; border-radius:50%; background:var(--bg); border:3px solid var(--accent-orange);}
+  .tl-period{color:var(--accent-orange); font-size:0.85rem; font-weight:700; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.08em;}
+  
+  /* Corrección crítica: fuente y proporciones naturales, nada de aplastamiento */
+  .tl-item h3{
+    font-size: 1.25rem; 
+    margin-bottom: 6px; 
+    font-family: 'Epilogue', sans-serif; 
+    font-weight: 700; 
+    line-height: 1.35; 
+    letter-spacing: -0.01em; 
+    color: var(--primary);
+  }
+  
+  .tl-org{color: var(--accent-teal); font-size: 1rem; margin-bottom: 12px; font-weight: 700;}
+  .tl-item p{color: var(--ink-dim); font-size: 0.98rem; max-width: 700px; line-height: 1.65;}
 
-        .hero-subtitle {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin-bottom: 40px;
-        }
+  #more-timeline{
+    display:grid;
+    grid-template-rows:0fr;
+    transition:grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  #more-timeline.open{
+    grid-template-rows:1fr;
+  }
+  #more-timeline > .timeline{
+    overflow:hidden;
+    min-height:0;
+    margin-top:32px;
+  }
+  .tl-compact{position:relative; padding:0 0 24px 0;}
+  .tl-compact::before{content:''; position:absolute; left:-42px; top:6px; width:10px; height:10px; border-radius:50%; background:var(--bg); border:2px solid var(--line-strong);}
+  .tl-compact .row{display:flex; flex-wrap:wrap; gap:6px 16px; align-items:baseline;}
+  .tl-compact h4{font-size:1rem; font-weight:700; color:var(--primary); font-family:'Epilogue', sans-serif;}
+  .tl-compact .org{color:var(--ink-dim); font-size:0.9rem; font-weight:500;}
+  .tl-compact .yr{color:var(--accent-orange); font-size:0.82rem; margin-left:auto; font-weight:700;}
 
-        /* Grid Layouts */
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-        }
+  .toggle-btn{
+    margin-top:32px; margin-left:40px;
+    background:var(--primary); border:none; color:#fff;
+    font-family:'Epilogue',sans-serif; font-weight:700; font-size:0.92rem;
+    padding:12px 24px; cursor:pointer; transition:all 0.2s ease;
+    border-radius:0px; box-shadow: 0 4px 12px rgba(18,34,56,0.15);
+  }
+  .toggle-btn:hover{background:var(--accent-orange); transform:translateY(-2px);}
 
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
+  /* ---------- SEÑALES ---------- */
+  .signals-intro{color:var(--ink-dim); max-width:700px; font-size:1.1rem; margin-bottom:36px;}
+  .signals-intro strong{color:var(--primary);}
 
-        /* Cards */
-        .glass-card {
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 40px;
-            border-radius: 16px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
+  .cone-wrap{display:flex; align-items:center; gap:36px; margin-bottom:48px; flex-wrap:wrap; background:var(--bg-elevated); padding:32px; border:1px solid var(--line); border-left:4px solid var(--accent-teal);}
+  .cone-box{position:relative; width:240px; height:140px; flex:none;}
+  .cone-shape{
+    position:absolute; left:0; top:50%; width:220px; height:0; transform:translateY(-50%);
+    border-top:70px solid transparent; border-bottom:70px solid transparent; border-left:220px solid var(--line-strong);
+    opacity:0.4;
+  }
+  .cone-label.present{position:absolute; left:-8px; top:50%; transform:translate(-100%,-50%); font-size:0.8rem; color:var(--primary); font-weight:700; white-space:nowrap;}
+  .cone-tag{position:absolute; right:-6px; font-size:0.72rem; font-weight:700; color:#fff; background:var(--primary); padding:4px 10px; border-radius:0px; white-space:nowrap;}
+  .cone-tag.probables{top:50%; transform:translateY(-50%); background:var(--accent-teal);}
+  .cone-tag.posibles{top:14%; background:var(--accent-pink);}
+  .cone-tag.deseables{bottom:14%; background:var(--accent-yellow); color:#122238;}
+  .cone-note{flex:1; min-width:260px; color:var(--ink-dim); font-size:0.98rem; line-height:1.65;}
+  @media (max-width:600px){ .cone-box{display:none;} }
 
-        .glass-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 3px;
-            background: linear-gradient(90deg, var(--neon-blue), var(--neon-yellow));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
+  .sd-tag{
+    display:inline-block; font-size:0.7rem; font-weight:800; color:#fff;
+    background:var(--accent-teal); padding:2px 8px; border-radius:0px; margin-left:8px; vertical-align:middle; text-transform:uppercase;
+  }
+  .signals-layout{display:grid; grid-template-columns:1.1fr 1fr; gap:40px; align-items:start; margin-top:40px;}
 
-        .glass-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
+  .matrix-box{
+    position:relative; aspect-ratio:1/1; background:var(--bg-elevated);
+    border:1px solid var(--line-strong);
+  }
+  .matrix-box::before,.matrix-box::after{content:''; position:absolute; background:var(--line);}
+  .matrix-box::before{left:50%; top:0; bottom:0; width:1px;}
+  .matrix-box::after{top:50%; left:0; right:0; height:1px;}
+  .axis-label{position:absolute; font-size:0.75rem; color:var(--ink-faint); font-weight:700; text-transform:uppercase; letter-spacing:0.05em;}
+  .axis-label.top{top:14px; left:16px;}
+  .axis-label.bottom{bottom:14px; left:16px;}
+  .axis-label.right-top{top:14px; right:16px; text-align:right;}
+  .axis-y{position:absolute; top:14px; left:16px; font-size:0.75rem; color:var(--accent-orange); font-weight:700;}
+  .axis-x{position:absolute; bottom:14px; right:16px; font-size:0.75rem; color:var(--accent-orange); font-weight:700;}
+  .pin{
+    position:absolute; width:18px; height:18px; border-radius:50%;
+    transform:translate(-50%,-50%); cursor:pointer; border:2px solid var(--bg-elevated);
+    box-shadow:0 0 0 2px var(--primary);
+    transition:transform 0.2s ease;
+    background:var(--accent-orange); padding:0;
+  }
+  .pin:hover, .pin.active{transform:translate(-50%,-50%) scale(1.4);}
+  .pin:focus-visible{
+    outline:2px solid var(--accent-orange); outline-offset:3px;
+    transform:translate(-50%,-50%) scale(1.4);
+  }
 
-        .glass-card:hover::before {
-            opacity: 1;
-        }
+  @media (max-width:760px){
+    .signals-layout{grid-template-columns:1fr;}
+    .matrix-box{display:none;}
+  }
 
-        .card-title {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #fff;
-        }
+  .signal-list{display:flex; flex-direction:column; gap:12px;}
+  .signal-card{
+    text-align:left; width:100%; background:var(--bg-elevated); border:1px solid var(--line);
+    padding:18px 20px; cursor:pointer; color:var(--ink); font-family:inherit;
+    display:flex; align-items:center; gap:16px; transition:all 0.2s ease;
+  }
+  .signal-card:hover, .signal-card.active{border-color:var(--accent-orange); background:rgba(224,86,56,0.03); transform:translateX(4px);}
+  .signal-card .flag{font-size:1.4rem;}
+  .signal-card .txt{font-size:0.95rem; color:var(--ink-dim); line-height:1.5;}
+  .signal-card .country{display:block; font-size:0.8rem; color:var(--accent-orange); font-weight:700; margin-bottom:3px; letter-spacing:0.03em;}
 
-        .tag {
-            display: inline-block;
-            padding: 5px 12px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin: 5px 5px 15px 0;
-            color: var(--neon-blue);
-        }
+  .detail-panel{
+    margin-top:36px; padding:36px 40px; background:var(--bg-elevated);
+    border:1px solid var(--line-strong); border-radius:0px;
+    position:relative; overflow:hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  }
+  .detail-panel::before{
+    content:''; position:absolute; top:0; left:0; width:100%; height:4px;
+    background: linear-gradient(90deg, var(--accent-orange), var(--accent-teal), var(--accent-purple));
+  }
+  .detail-panel .dp-country{font-size:0.85rem; color:var(--accent-orange); font-weight:700; margin-bottom:10px; text-transform:uppercase; letter-spacing:0.05em;}
+  .detail-panel h3{font-size:1.3rem; margin-bottom:16px; line-height:1.35; font-family:'Syne',sans-serif; color:var(--primary);}
+  .detail-panel .dp-q{font-family:'Syne',sans-serif; font-size:1.1rem; color:var(--primary); line-height:1.5; font-weight:700;}
+  .dp-postcard{
+    margin-top:20px; padding:20px 24px; background:var(--bg-soft);
+    border-left:3px solid var(--accent-orange); border-radius:0px;
+    font-size:0.98rem; color:var(--primary); line-height:1.65; font-weight:500;
+  }
+  .detail-panel .dp-invite{margin-top:16px; font-size:0.88rem; color:var(--ink-faint);}
 
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 15px 35px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
+  /* ---------- CTA ---------- */
+  .cta{
+    background: linear-gradient(135deg, #122238 0%, #1a365d 100%);
+    color: #fff;
+    border-top: none;
+  }
+  .cta h2{font-size:clamp(1.8rem, 3.5vw, 2.6rem); max-width:800px; margin-bottom:24px; line-height:1.2; color: #fff;}
+  .cta p{color:var(--line); max-width:600px; margin-bottom:40px; font-size:1.1rem;}
+  .contact-grid{display:flex; flex-wrap:wrap; gap:16px;}
+  .contact-item{
+    display:flex; align-items:center; gap:16px; padding:20px 28px;
+    border:1px solid rgba(255,255,255,0.15); background:rgba(255,255,255,0.05);
+    font-size:1rem; text-decoration:none; transition:all 0.2s ease;
+    border-radius:0px; color: #fff;
+  }
+  .contact-item:hover{border-color:var(--accent-orange); transform:translateY(-2px); background:rgba(255,255,255,0.1);}
+  .contact-item .label{color:var(--line); font-size:0.78rem; display:block; margin-bottom:3px; text-transform:uppercase; letter-spacing:0.05em;}
+  .contact-item .value{color:#fff; font-weight:700;}
+  .contact-item.primary{border-color:var(--accent-orange); background:rgba(224,86,56,0.2);}
+  .contact-item.primary .value{color:#ff856b;}
 
-        .btn-primary {
-            background: transparent;
-            color: var(--neon-yellow);
-            border: 2px solid var(--neon-yellow);
-            box-shadow: 0 0 15px rgba(253, 216, 53, 0.2);
-        }
+  .contact-fab{
+    position:fixed; top:24px; right:24px; z-index:50;
+    min-height:44px; display:inline-flex; align-items:center; gap:10px;
+    padding:12px 24px; background:var(--bg-elevated); border:2px solid var(--primary);
+    color:var(--primary); font-family:'Epilogue',sans-serif; font-weight:700; font-size:0.9rem;
+    text-decoration:none; border-radius:0px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+    transition:all 0.2s ease;
+  }
+  .contact-fab:hover{border-color:var(--accent-orange); color:var(--accent-orange); transform:translateY(-2px); box-shadow:0 14px 36px rgba(0,0,0,0.15);}
+  .contact-fab .fab-dot{width:8px; height:8px; border-radius:50%; background:var(--accent-orange); display:inline-block;}
+  @media (max-width:600px){ .contact-fab{top:12px; right:12px; padding:10px 16px; font-size:0.82rem;} }
 
-        .btn-primary:hover {
-            background: var(--neon-yellow);
-            color: var(--bg-dark);
-            box-shadow: 0 0 25px rgba(253, 216, 53, 0.6);
-        }
+  footer{padding:40px 0 64px; background:var(--primary); color:#fff; border-top:1px solid rgba(255,255,255,0.1);}
+  footer p{color:var(--line); font-size:0.85rem; font-weight:500;}
 
-        .btn-secondary {
-            background: transparent;
-            color: var(--neon-blue);
-            border: 2px solid var(--neon-blue);
-            box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
-        }
-
-        .btn-secondary:hover {
-            background: var(--neon-blue);
-            color: var(--bg-dark);
-            box-shadow: 0 0 25px rgba(0, 229, 255, 0.6);
-        }
-
-        /* Sections specific */
-        .section-header {
-            margin-bottom: 60px;
-        }
-        
-        .section-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-
-        .tech-vocab {
-            color: var(--text-main);
-            font-style: italic;
-            border-bottom: 1px dashed var(--neon-blue);
-        }
-
-        /* Footer / CTA */
-        #cta {
-            background: linear-gradient(180deg, var(--bg-dark) 0%, #050508 100%);
-            text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 40px;
-            flex-wrap: wrap;
-        }
-
-        @media (max-width: 768px) {
-            .grid-2 { grid-template-columns: 1fr; }
-            .section-padding { padding: 60px 5%; }
-        }
-    </style>
+  @media (max-width:600px){
+    .wrap{padding:0 24px;}
+    section{padding:70px 0;}
+    .perfil-grid, .capacity-grid{grid-template-columns:1fr;}
+  }
+</style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+<a class="contact-fab" href="#contacto"><span class="fab-dot" aria-hidden="true"></span>Holis, ¿podemos hablar?</a>
 
-    <!-- HERO SECTION -->
-    <section id="hero" class="section-padding container">
-        <div class="hero-content">
-            <span class="greeting">Hola, Jacky Arango</span>
-            <h1 class="hero-title">Entre todos los escenarios plausibles para el sector financiero,<br> <span class="highlight-yellow">el más preferible</span> es aquel donde me sumo a tu equipo para hacer cosas increíbles.</h1>
-            <p class="hero-subtitle">Soy <strong>Anlly Upegui Valencia</strong>, Arquitecta de Estrategia, Innovación y Futuros. No diseño PDFs decorativos; articulo <span class="tech-vocab">Horizon Scanning</span> y estrategia emergente para movilizar decisiones en el presente.</p>
-            <a href="#cta" class="btn btn-primary">Iniciar Conexión</a>
+<main id="main-content">
+<section class="hero">
+  <div class="blob blob1" aria-hidden="true"></div>
+  <div class="blob blob2" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+    <div class="wave">Hola, Jacky.</div>
+    <p class="intro">Detecté en tu liderazgo una señal muy clara del futuro en el que quiero trabajar: entre todos los escenarios plausibles, el más preferible es aquel donde puedo sumarme a las visiones de tu área.</p>
+
+    <h1 class="gradient-text">Diseño futuros que se puedan habitar, no solo imaginar.</h1>
+
+    <div class="hero-name">
+      <span class="name">Anlly Upegui Valencia</span>
+      <span class="role">Arquitecta de Estrategia, Innovación y Futuros</span>
+    </div>
+  </div>
+</section>
+
+<section id="cono-futuros">
+  <div class="wrap">
+    <div class="kicker">Cómo pienso el futuro</div>
+    <h2 class="section-title">No busco predecirlo. Busco diseñarlo.</h2>
+    <p class="section-lede">Toca cada banda del cono: te cuento algo que, si trabajamos juntas en tu equipo, podríamos haber logrado en ese tipo de futuro.</p>
+
+    <div class="cone-layout">
+      <div class="big-cone" id="bigCone">
+        <svg viewBox="0 0 1100 620" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Diagrama del cono de futuros">
+          <polygon points="60,310 980,80 980,540" style="fill:var(--accent-purple); opacity:0.2"/>
+          <polygon points="60,310 960,150 960,470" style="fill:var(--accent-pink); opacity:0.2"/>
+          <ellipse cx="900" cy="310" rx="70" ry="180" style="fill:var(--accent-pink); opacity:0.25"/>
+          <ellipse cx="850" cy="310" rx="55" ry="130" style="fill:var(--accent-teal); opacity:0.35"/>
+          <ellipse cx="820" cy="310" rx="42" ry="80" style="fill:var(--accent-yellow); opacity:0.5"/>
+          <line x1="70" y1="310" x2="900" y2="310" style="stroke:var(--primary); stroke-opacity:0.4" stroke-dasharray="6 6"/>
+          <circle cx="70" cy="310" r="5" style="fill:var(--primary)"/>
+          <text x="30" y="300" style="fill:var(--primary); font-family:'Syne'; font-weight:700; font-size:24px">Presente</text>
+        </svg>
+      </div>
+
+      <div class="cone-side">
+        <div class="cone-labels" id="coneLabels" role="group" aria-label="Bandas del cono de futuros">
+          <button type="button" class="cone-lbl active" data-band="probables" aria-pressed="true" aria-controls="coneDetailText"><span class="dot" style="background:var(--accent-yellow)" aria-hidden="true"></span>Futuros probables</button>
+          <button type="button" class="cone-lbl" data-band="posibles" aria-pressed="false" aria-controls="coneDetailText"><span class="dot" style="background:var(--accent-pink)" aria-hidden="true"></span>Futuros posibles</button>
+          <button type="button" class="cone-lbl" data-band="deseables" aria-pressed="false" aria-controls="coneDetailText"><span class="dot" style="background:var(--accent-teal)" aria-hidden="true"></span>Futuros deseables</button>
+          <button type="button" class="cone-lbl" data-band="absurdos" aria-pressed="false" aria-controls="coneDetailText"><span class="dot" style="background:var(--accent-purple)" aria-hidden="true"></span>Futuros absurdos</button>
         </div>
-    </section>
-
-    <!-- PERFIL Y HABILIDADES -->
-    <section id="profile" class="section-padding container">
-        <div class="section-header">
-            <h2>Decodificando la <span class="highlight-blue">Incertidumbre</span></h2>
-            <p style="max-width: 600px; color: var(--text-muted);">Transformo señales débiles en portafolios accionables. Mi maestría en Diseño de Futuros (Colegiatura) y mi experiencia liderando portafolios B2B y estrategias organizacionales me permiten conectar la visión con la ejecución ágil.</p>
+        <div class="cone-detail" id="coneDetail">
+          <div class="dp-postcard" id="coneDetailText" aria-live="polite" aria-atomic="true">📮 Hola, vengo del futuro: Bancolombia estrena el "seguro de arrepentimiento". Antes de una compra grande, la app te muestra un video generado por IA de tu yo dentro de cinco años, agradeciendo o reclamando la decisión.</div>
         </div>
-        
-        <div class="grid-2">
-            <div class="glass-card">
-                <h3 class="card-title">Futures Literacy & Foresight</h3>
-                <span class="tag">Causal Layered Analysis</span>
-                <span class="tag">Horizon Scanning</span>
-                <span class="tag">Backcasting</span>
-                <span class="tag">Mapeo de Actores</span>
-                <p>Capacidad probada para anticipar escenarios regulatorios y de mercado. Paso de la especulación a la acción estructurando <span class="tech-vocab">Artefactos del Futuro</span> que provocan conversaciones movilizadoras en la alta dirección.</p>
-            </div>
-            <div class="glass-card">
-                <h3 class="card-title">Estrategia & Agilidad</h3>
-                <span class="tag">Scrum Master & SPOC</span>
-                <span class="tag">Design Thinking</span>
-                <span class="tag">Portafolio Ágil</span>
-                <span class="tag">OKR</span>
-                <p>En Los Olivos y Wise 4D, lideré la transición hacia modelos de portafolio digital y ecosistemas integrales. Traduzco la prospectiva en backlogs estructurados, elevando el cumplimiento estratégico del 20% al 90%.</p>
-            </div>
-        </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- OPORTUNIDADES BANCOLOMBIA -->
-    <section id="opportunities" class="section-padding container">
-        <div class="section-header">
-            <h2>3 Señales Débiles, <span class="highlight-yellow">3 Oportunidades para Bancolombia</span></h2>
-            <p style="max-width: 600px; color: var(--text-muted);">Aplicando <em>Horizon Scanning</em> sobre las dinámicas emergentes del ecosistema financiero regional.</p>
-        </div>
+<section id="perfil">
+  <div class="wrap about">
+    <div class="kicker">Quién soy</div>
+    <h2 class="section-title">Once años de retos profesionales, construyendo la versión profesional que anhelo ser.</h2>
 
-        <div class="grid-3">
-            <div class="glass-card">
-                <h3 class="card-title">1. Finanzas Regenerativas & Transición</h3>
-                <p>Más allá del 'Net Zero' y ESG tradicional. Bancolombia puede liderar el diseño de productos financieros vinculados a créditos de biodiversidad y economía regenerativa local. Aplicando <span class="tech-vocab">Causal Layered Analysis</span>, podemos deconstruir la percepción del riesgo climático y transformarla en una ventaja competitiva de regeneración de ecosistemas.</p>
-            </div>
-            
-            <div class="glass-card">
-                <h3 class="card-title">2. 'Principalidad' Cognitiva y Ética IA</h3>
-                <p>La IA en banca debe superar la automatización transaccional. La oportunidad radica en diseñar interacciones (Superapps) que generen alfabetización y bienestar financiero autónomo. Evitando sesgos algorítmicos, el banco se posiciona no solo como custodio de dinero, sino como el principal orquestador del comportamiento financiero saludable del usuario.</p>
-            </div>
+    <p>Diseño estrategias que permiten a las organizaciones anticipar el futuro y evolucionar con él. Administradora de Empresas, Magíster en Educación y Derechos Humanos, y actualmente en la <strong>Maestría en Diseño de Futuros</strong>. Mi práctica conecta direccionamiento estratégico, foresight aplicado y evolución de negocio en sectores como salud, tecnología, educación y economía solidaria.</p>
 
-            <div class="glass-card">
-                <h3 class="card-title">3. Identidad Financiera Descentralizada</h3>
-                <p>Ante la proliferación de protocolos descentralizados, el rol de la banca muta. Explorando escenarios a través de <span class="tech-vocab">Backcasting</span>, Bancolombia puede anticiparse actuando como puente de confianza y validación de identidad (KYC universal) entre los mundos Web2 y Web3, facilitando finanzas embebidas en comunidades regionales.</p>
-            </div>
-        </div>
-    </section>
+    <p>He liderado portafolios de innovación bajo pensamiento sistémico y estrategia emergente, traduciendo señales del entorno en decisiones de alto impacto. Retroprospectiva, exploración de horizontes, análisis causal en capas y mapeo de actores no son solo herramientas: son cómo ya tomo decisiones todos los días.</p>
 
-    <!-- CTA -->
-    <section id="cta" class="section-padding container">
-        <h2 style="font-size: 3rem; margin-bottom: 20px;">Diseñemos el próximo <span class="highlight-blue">horizonte</span></h2>
-        <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto;">Me encantaría profundizar en cómo podemos materializar estas visiones en el equipo de Inteligencia Estratégica.</p>
-        
-        <div class="contact-links">
-            <a href="https://wa.me/573054314088" target="_blank" class="btn btn-primary">Conectar por WhatsApp</a>
-            <a href="https://linkedin.com/in/anllyupegui" target="_blank" class="btn btn-secondary">Ver LinkedIn</a>
-            <a href="HV_AnllyM_UpeguiV.pdf" download class="btn btn-secondary">Descargar HV (PDF)</a>
-        </div>
-        <p style="margin-top: 40px; font-size: 0.9rem; color: #555;">anllyupeguiv@gmail.com | 305-431-4088</p>
-    </section>
+    <div class="skills-grid" id="skillsGrid"></div>
 
-    <script>
-        // Animaciones simples de aparición
-        document.addEventListener('DOMContentLoaded', () => {
-            const cards = document.querySelectorAll('.glass-card');
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if(entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            });
+    <div class="capacity-grid">
+      <div class="capacity">
+        <h3>Direccionamiento Estratégico y Ejecución</h3>
+        <p>Reformulé el Plan Estratégico de Los Olivos bajo un enfoque emergente, conectando la visión de largo plazo con un portafolio vivo de 27 iniciativas. Elevé la ejecución de proyectos del 20% al 90%, demostrando que el diseño de futuros solo sirve si se traduce en resultados y tracción en el día a día.</p>
+      </div>
+      <div class="capacity">
+        <h3>Visión Multisectorial</h3>
+        <p>He trabajado en sectores como salud digital, logística, investigación y banca B2B (creando soluciones para clientes como BBVA y Confiar). Entender cómo funcionan industrias tan distintas me ayuda a encontrar oportunidades y señales en el entorno que el análisis tradicional suele pasar por alto.</p>
+      </div>
+      <div class="capacity">
+        <h3>Agilidad e Inteligencia Artificial</h3>
+        <p>Aplico marcos ágiles desde la práctica (Scrum Master y Product Owner certificada) para mantener proyectos en movimiento. Lideré la adopción de automatización e IA en procesos operativos de Los Olivos, liberando tiempo del equipo para que se concentren en la analítica y decisiones del negocio.</p>
+      </div>
+      <div class="capacity">
+        <h3>Formación e Investigación</h3>
+        <p>Mantengo una curiosidad constante por aprender: este año me formé en IA para Directivos (CESA) y Vigilancia Estratégica (U. de Medellín), y actualmente curso la Maestría en Diseño de Futuros. Cuento con una Maestría en Educación y Derechos Humanos (tesis laureada), experiencia en investigación aplicada con el SENA y pasantías académicas en México y Perú. Esto me da las bases para entender tanto los datos y la tecnología como el factor humano en las organizaciones.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-            cards.forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(card);
-            });
+<section id="trayectoria">
+  <div class="wrap">
+    <div class="kicker">Trayectoria</div>
+    <h2 class="section-title">De analista contable a diseñar el direccionamiento estratégico</h2>
+    <p class="section-lede">Una década de evolución consciente, transitando desde la base operativa hasta el direccionamiento corporativo y la gestión de portafolios complejos. Mi experiencia es la prueba de cómo traduzco la incertidumbre del entorno en hojas de ruta ejecutables y rentables.</p>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-period">Ago. 2024 - Actualidad</div>
+        <h3>Jefa de Planeación Estratégica, Procesos y Proyectos y, desde jul. 2026, también Oficial de Cumplimiento Corporativo</h3>
+        <div class="tl-org">Los Olivos Antioquia-Chocó</div>
+        <p>Reformulé el Plan de Direccionamiento Estratégico retrocediendo desde el futuro que queríamos: 27 iniciativas, cumplimiento del 20% al 90%. Ese resultado me ganó una segunda confianza: cuidar también el riesgo de la cooperativa.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-period">Nov. 2023 - Ago. 2024</div>
+        <h3>Líder de Proyectos</h3>
+        <div class="tl-org">Inbios Soluciones Biomédicas · Grupo Inbios (HealthTech)</div>
+        <p>Tres productos digitales de salud, tres lógicas distintas. Los uní bajo un solo tablero de mando y un mismo criterio de decisión.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-period">Ago. 2022 - Nov. 2023</div>
+        <h3>Diseñadora e implementadora de proyectos</h3>
+        <div class="tl-org">Emtelco · clientes BBVA, Tigo, Flypass, Confiar, Haceb</div>
+        <p>+20 proyectos simultáneos, un solo estándar: BBVA, Tigo, Confiar y Haceb confiaron el mismo criterio estratégico en sectores que no perdonan un error.</p>
+      </div>
+    </div>
+
+    <div id="more-timeline">
+      <div class="timeline" style="margin-top:0px; border-color:var(--line-strong);">
+        <div class="tl-compact"><div class="row"><h4>Delegada Comité Educación</h4><span class="org">Confecoop Antioquia</span><span class="yr">2025 - actualidad</span></div></div>
+        <div class="tl-compact"><div class="row"><h4>Investigadora y profesional de proyectos</h4><span class="org">SENA · I+D+i SGPS 12518</span><span class="yr">2023 - 2024</span></div></div>
+        <div class="tl-compact"><div class="row"><h4>Profesional gestión de proyectos</h4><span class="org">Ditransa</span><span class="yr">mar. - ago. 2022</span></div></div>
+        <div class="tl-compact"><div class="row"><h4>Codificadora ICFES</h4><span class="org">Centro Nacional de Consultoría</span><span class="yr">2020 - 2022</span></div></div>
+        <div class="tl-compact"><div class="row"><h4>Oficial en Proyectos</h4><span class="org">Corporación Más Humana</span><span class="yr">2021 - 2022</span></div></div>
+        <div class="tl-compact"><div class="row"><h4>Investigadora Junior</h4><span class="org">SENA - Barranquilla</span><span class="yr">2020 - 2022</span></div></div>
+        <div class="tl-compact"><div class="row"><h4>Coordinadora Administrativa</h4><span class="org">Audioplay Publicidad y Marketing · Lima, Perú</span><span class="yr">2019 - 2021</span></div></div>
+        <div class="tl-compact"><div class="row"><h4>Analista Contable y Administrativa</h4><span class="org">Comercializadora Minidelicias</span><span class="yr">2015 - 2019</span></div></div>
+      </div>
+    </div>
+    <button type="button" class="toggle-btn" id="toggleTimeline" onclick="toggleTimeline()" aria-expanded="false" aria-controls="more-timeline">Ver toda la trayectoria (2015 - 2022)</button>
+  </div>
+</section>
+
+<section id="senales">
+  <div class="wrap">
+    <div class="kicker">Para pensar juntas</div>
+    <h2 class="section-title">Señales de cambio que estoy leyendo en otros países</h2>
+    <p class="signals-intro">7 señales débiles (SD) que ya se mueven en el mundo. Toca una para ver la pregunta que me hago.</p>
+
+    <div class="cone-wrap">
+      <div class="cone-box">
+        <div class="cone-shape"></div>
+        <span class="cone-label present">Presente</span>
+        <span class="cone-tag probables">Probables</span>
+        <span class="cone-tag posibles">Posibles</span>
+        <span class="cone-tag deseables">Deseables</span>
+      </div>
+      <p class="cone-note">Estas 7 señales están en la banda de los futuros posibles, no en la de los probables. Mi trabajo, si trabajamos juntas, sería ayudar a decidir cuáles de esos posibles nos conviene empujar hacia deseables.</p>
+    </div>
+
+    <div class="signals-layout">
+      <div class="matrix-box" id="matrixBox" role="region" aria-label="Matriz de Incertidumbre vs Impacto">
+        <span class="axis-label top" aria-hidden="true">Alto impacto</span>
+        <span class="axis-label bottom" aria-hidden="true">Bajo impacto</span>
+        <span class="axis-x" aria-hidden="true">Incertidumbre →</span>
+        <span class="axis-y" aria-hidden="true">Impacto →</span>
+      </div>
+
+      <div class="signal-list" id="signalList" role="region" aria-label="Lista interactiva de señales débiles"></div>
+    </div>
+
+    <div class="detail-panel" id="detailPanel" aria-live="polite" aria-atomic="true">
+      <div class="dp-country">Brasil · Pix + Open Finance</div>
+      <h3>Pagos instantáneos y gratuitos reconfiguran quién "posee" al cliente</h3>
+      <p class="dp-q">Si pagar deja de depender del banco, ¿en qué momento del día sigue siendo indispensable un banco para alguien en Colombia?</p>
+      <div class="dp-postcard">📮 Diseñamos la capa invisible de Bancolombia. La gente paga sin pensar en el banco, y aun así piensa primero en nosotros.</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contacto">
+  <div class="wrap">
+    <h2 style="color:#fff;">Confío en que este artefacto sea un hecho portador de futuro y me tengas en tu presente para sumarme a tu equipo.</h2>
+    <p>Hagamos que las decisiones estratégicas de hoy construyan el mejor escenario posible.</p>
+
+    <div class="contact-grid">
+      <a class="contact-item primary" href="https://wa.me/573054314088" target="_blank" rel="noopener noreferrer">
+        <div><span class="label">WhatsApp / Chat directo</span><span class="value">+57 305 431 4088</span></div>
+      </a>
+      <a class="contact-item" href="mailto:anllyupeguiv@gmail.com">
+        <div><span class="label">Correo</span><span class="value">anllyupeguiv@gmail.com</span></div>
+      </a>
+      <a class="contact-item" href="https://linkedin.com/in/anllyupegui" target="_blank" rel="noopener noreferrer">
+        <div><span class="label">LinkedIn</span><span class="value">/in/anllyupegui</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap"><p>Anlly Upegui Valencia, Arquitecta de Estrategia, Innovación y Futuros.</p></div>
+</footer>
+
+<script>
+  (function(){
+    var bands = {
+      probables:'📮 Hola, vengo del futuro: Bancolombia estrena el "seguro de arrepentimiento". Antes de una compra grande, la app te muestra un video generado por IA de tu yo dentro de cinco años, agradeciendo o reclamando la decisión.',
+      posibles:'📮 Hola, vengo del futuro: abrimos cuentas de ahorro a nombre de ríos y selvas. El Chocó cobra regalías por su propia biodiversidad, y un contrato inteligente solo deja gastar ese dinero en restaurarlo a él mismo.',
+      deseables:'📮 Hola, vengo del futuro: creamos el "duelo financiero". Cuando alguien muere, un agente entrenado por la familia cierra, dona o hereda cada suscripción y deuda en 48 horas, sin que nadie tenga que llorar frente a una pantalla.',
+      absurdos:'📮 Hola, vengo del futuro: lanzamos un crédito respaldado por el llanto verificado en una boda. La emoción certificada biométricamente se vuelve la garantía, no el ingreso.'
+    };
+    var labels = document.querySelectorAll('.cone-lbl');
+    var text = document.getElementById('coneDetailText');
+    labels.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        labels.forEach(function(b){
+          b.classList.remove('active');
+          b.setAttribute('aria-pressed', 'false');
         });
-    </script>
+        btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
+        if(text){
+          text.style.opacity = 0;
+          setTimeout(function(){
+            var bandKey = btn.getAttribute('data-band');
+            if(bands[bandKey]){
+              text.textContent = bands[bandKey];
+            }
+            text.style.transition = 'opacity 0.3s ease';
+            text.style.opacity = 1;
+          }, 120);
+        }
+      });
+    });
+  })();
+
+  (function(){
+    var skills = [
+      {name:'Análisis Causal en Capas', desc:'Desarmar problemas desde la raíz.'},
+      {name:'Exploración de Horizontes', desc:'Anticipar señales de cambio.'},
+      {name:'Mapeo de actores', desc:'Alinear intereses y decisiones.'},
+      {name:'Retroprospectiva', desc:'Construir rutas desde el futuro.'},
+      {name:'Rueda de futuros', desc:'Mapear consecuencias no vistas.'},
+      {name:'Pensamiento sistémico', desc:'Entender el todo conectado.'},
+      {name:'Gobernabilidad de datos', desc:'Guiar decisiones con datos.'},
+      {name:'Scrum · Kanban · Lean', desc:'Entregar valor sin fricción.'}
+    ];
+    var grid = document.getElementById('skillsGrid');
+    if(!grid) return;
+    skills.forEach(function(sk){
+      var card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'skill-card';
+      card.setAttribute('aria-pressed', 'false');
+      card.setAttribute('aria-label', sk.name + ': presiona para ver descripción');
+      card.innerHTML = '<div class="skill-inner">'+
+        '<div class="skill-face skill-front">'+
+          '<span>'+sk.name+'</span>'+
+          '<span class="skill-flip-icon" aria-hidden="true">↻</span>'+
+        '</div>'+
+        '<div class="skill-face skill-back">'+sk.desc+'</div>'+
+      '</div>';
+      card.addEventListener('click', function(){
+        var isFlipped = card.classList.toggle('flipped');
+        card.setAttribute('aria-pressed', isFlipped ? 'true' : 'false');
+        card.setAttribute('aria-label', sk.name + ': ' + (isFlipped ? sk.desc : 'presiona para ver descripción'));
+      });
+      grid.appendChild(card);
+    });
+  })();
+
+  (function(){
+    var burst = document.getElementById('burst');
+    if(!burst || window.innerWidth <= 900) return;
+    var n = 28;
+    for(var i=0;i<n;i++){
+      var ray = document.createElement('div');
+      ray.className = 'burst-ray';
+      ray.style.transform = 'translate(-50%,-50%) rotate('+(i*(360/n))+'deg)';
+      ray.style.opacity = (0.15 + Math.random()*0.4).toFixed(2);
+      burst.appendChild(ray);
+    }
+  })();
+
+  function toggleTimeline(){
+    var el = document.getElementById('more-timeline');
+    var btn = document.getElementById('toggleTimeline');
+    if(!el || !btn) return;
+    var isOpen = el.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    btn.textContent = isOpen ? 'Ver menos' : 'Ver toda la trayectoria (2015 - 2022)';
+  }
+
+  var signals = [
+    {
+      id:'ke', flag:'🇰🇪', country:'Kenia · scoring por comportamiento móvil',
+      short:'El historial de uso del celular reemplaza al historial bancario para dar crédito.',
+      question:'¿Qué pasaría si el comportamiento cotidiano, no solo el financiero, se volviera parte del scoring en Colombia?',
+      postcard:'Hola, vengo del futuro: lanzamos juntas el primer piloto de crédito por comportamiento para zonas rurales, y la inclusión financiera subió un 30%.',
+      impact:82, uncertainty:42, color:'var(--accent-orange)'
+    },
+    {
+      id:'eu', flag:'🇪🇺', country:'Unión Europea · AI Act',
+      short:'La explicabilidad de un modelo de crédito deja de ser opcional y se vuelve ley.',
+      question:'¿Cómo se vería un crédito que el cliente puede "auditar" tan fácil como audita su extracto?',
+      postcard:'Hola, vengo del futuro: construimos el primer "extracto explicado" de la banca colombiana, y ganamos el Premio a la Transparencia Financiera.',
+      impact:88, uncertainty:18, color:'var(--accent-pink)'
+    },
+    {
+      id:'br', flag:'🇧🇷', country:'Brasil · Pix + Open Finance',
+      short:'Pagos instantáneos y gratuitos reconfiguran quién "posee" al cliente.',
+      question:'Si pagar deja de depender del banco, ¿en qué momento del día sigue siendo indispensable un banco?',
+      postcard:'Hola, vengo del futuro: diseñamos la capa invisible de Bancolombia. La gente paga sin pensar en el banco, y aun así piensa primero en nosotros.',
+      impact:85, uncertainty:15, color:'var(--accent-yellow)', active:true
+    },
+    {
+      id:'in', flag:'🇮🇳', country:'India · UPI + Account Aggregator',
+      short:'El dato financiero se vuelve portable: viaja con la persona, no se queda en la entidad.',
+      question:'¿Qué cambiaría si tu historial financiero viajara contigo entre entidades, como tu historial médico?',
+      postcard:'Hola, vengo del futuro: fuimos el primer banco de la región en dejar que el historial del cliente viaje con él, y nos volvimos el destino, no el punto de partida.',
+      impact:55, uncertainty:48, color:'var(--accent-teal)'
+    },
+    {
+      id:'sg', flag:'🇸🇬', country:'Singapur · crédito verde verificado',
+      short:'Crédito agrícola verificado con datos satelitales del cultivo, no solo con papeles.',
+      question:'¿Un crédito rural en Colombia podría aprobarse con datos satelitales del predio, no solo con certificados?',
+      postcard:'Hola, vengo del futuro: aprobamos el primer crédito rural colombiano verificado por satélite, y ganamos el Premio al Mejor Diseño de Futuro del sector bancario.',
+      impact:52, uncertainty:76, color:'var(--accent-purple)'
+    },
+    {
+      id:'uk', flag:'🇬🇧', country:'Reino Unido · nudge units financieros',
+      short:'Equipos de ciencias del comportamiento diseñan el "default" de una decisión financiera antes de que el cliente decida.',
+      question:'¿Qué pasaría si cada producto de Bancolombia partiera de cómo decide realmente la gente, y no de cómo debería decidir?',
+      postcard:'Hola, vengo del futuro: rediseñamos el "default" de tres productos clave, y la gente por fin ahorra sin esforzarse.',
+      impact:70, uncertainty:30, color:'var(--accent-orange)'
+    },
+    {
+      id:'cn', flag:'🇨🇳', country:'China · puntaje verde y condiciones de crédito',
+      short:'Comportamientos sostenibles medidos y ligados a condiciones financieras.',
+      question:'¿Dónde está la línea entre incentivar comportamiento sostenible y vigilarlo, y quién la traza?',
+      postcard:'Hola, vengo del futuro: trazamos la línea ética que nadie más se atrevió a trazar, y la volvimos ventaja competitiva.',
+      impact:78, uncertainty:80, color:'var(--accent-yellow)'
+    }
+  ];
+
+  var listEl = document.getElementById('signalList');
+  var matrixEl = document.getElementById('matrixBox');
+  var panel = document.getElementById('detailPanel');
+
+  if(listEl){
+    signals.forEach(function(s){
+      var card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'signal-card' + (s.active ? ' active' : '');
+      card.setAttribute('data-id', s.id);
+      card.setAttribute('aria-pressed', s.active ? 'true' : 'false');
+      card.setAttribute('aria-controls', 'detailPanel');
+      card.setAttribute('aria-label', s.country + ': ' + s.short);
+      card.innerHTML = '<span class="flag" aria-hidden="true">'+s.flag+'</span><span class="txt"><span class="country">'+s.country+' <span class="sd-tag">SD</span></span>'+s.short+'</span>';
+      card.addEventListener('click', function(){ selectSignal(s.id); });
+      listEl.appendChild(card);
+
+      if(matrixEl){
+        var pin = document.createElement('button');
+        pin.type = 'button';
+        pin.className = 'pin' + (s.active ? ' active' : '');
+        pin.style.left = s.uncertainty + '%';
+        pin.style.top = (100 - s.impact) + '%';
+        pin.style.background = s.color;
+        pin.setAttribute('data-id', s.id);
+        pin.setAttribute('aria-pressed', s.active ? 'true' : 'false');
+        pin.setAttribute('aria-controls', 'detailPanel');
+        pin.setAttribute('aria-label', 'Punto en matriz: ' + s.country + '. Impacto ' + s.impact + '%, Incertidumbre ' + s.uncertainty + '%');
+        pin.title = s.country;
+        pin.addEventListener('click', function(){ selectSignal(s.id); });
+        matrixEl.appendChild(pin);
+      }
+    });
+  }
+
+  function selectSignal(id){
+    var s = signals.find(function(x){ return x.id === id; });
+    if(!s) return;
+    document.querySelectorAll('.signal-card').forEach(function(c){
+      var isActive = c.getAttribute('data-id') === id;
+      c.classList.toggle('active', isActive);
+      c.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+    document.querySelectorAll('.pin').forEach(function(p){
+      var isActive = p.getAttribute('data-id') === id;
+      p.classList.toggle('active', isActive);
+      p.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+    if(!panel) return;
+    panel.style.opacity = 0;
+    setTimeout(function(){
+      var countryEl = panel.querySelector('.dp-country');
+      var titleEl = panel.querySelector('h3');
+      var qEl = panel.querySelector('.dp-q');
+      var postEl = panel.querySelector('.dp-postcard');
+      if(countryEl) countryEl.textContent = s.flag + '  ' + s.country;
+      if(titleEl) titleEl.textContent = s.short;
+      if(qEl) qEl.textContent = s.question;
+      if(postEl) postEl.textContent = '📮 ' + s.postcard;
+      panel.style.transition = 'opacity 0.3s ease';
+      panel.style.opacity = 1;
+    }, 120);
+  }
+</script>
+
 </body>
 </html>
